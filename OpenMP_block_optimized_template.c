@@ -29,6 +29,16 @@ void matrixInit()
 void smallMatrixMult (int upperOfRow , int bottomOfRow , int leftOfCol , int rightOfCol , int transLeft ,int transRight )
 {
 //implement your code here using openMP
+//        #pragma omp parallel for collapse(2)
+    for (int i = upperOfRow; i < bottomOfRow; i++) {
+            for (int j = leftOfCol; j < rightOfCol; j++) {
+                double sum = 0.0;
+                for (int k = transLeft; k < transRight; k++) {
+                    sum += firstMatrix[i][k] * secondMatrix[k][j];
+                }
+                matrixMultiResult[i][j] += sum;
+            }
+        }
 }
 
 
