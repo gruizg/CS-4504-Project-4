@@ -13,7 +13,7 @@ double matrixMultiResult [N] [N] = {0.0};
 
 void matrixInit()
 {
-//    #pragma omp parallel for num_threads(4)
+    #pragma omp parallel for num_threads(4)
     for(int row = 0 ; row < N ; row++ ) {
         for(int col = 0 ; col < N ;col++){
             srand(row+col);
@@ -29,7 +29,7 @@ void matrixInit()
 void smallMatrixMult (int upperOfRow , int bottomOfRow , int leftOfCol , int rightOfCol , int transLeft ,int transRight )
 {
 //implement your code here using openMP
-//        #pragma omp parallel for collapse(2)
+        #pragma omp parallel for collapse(2)
     for (int i = upperOfRow; i < bottomOfRow; i++) {
             for (int j = leftOfCol; j < rightOfCol; j++) {
                 double sum = 0.0;
