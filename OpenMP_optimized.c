@@ -13,6 +13,7 @@ double matrixMultiResult [N] [N] = {0.0};
 
 void matrixMulti()
 {
+    #pragma omp parallel for collapse(2)
     for(int row = 0 ; row < N ; row++){
         for(int col = 0; col < N ; col++){
             double resultValue = 0;
